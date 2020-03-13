@@ -10,10 +10,17 @@
       <feature>jsp-2.3</feature>
       <feature>servlet-3.1</feature>
       <feature>monitor-1.0</feature>
+
+
+<feature>ejb-3.2</feature>
+<feature>jdbc-4.2</feature>
+<feature>jpa-2.2</feature>
+<feature>jaxrs-2.1</feature>
+
   </featureManager>
 
   <library id="DB2Lib">
-    <fileset dir="/opt/ibm/wlp/usr/shared/resources/db2" includes="db2jcc4.jar db2jcc_license_cu.jar"/>
+    <fileset dir="${server.config.dir}resources/db2" includes="db2jcc4.jar db2jcc_license_cu.jar"/>
   </library>
 
   <dataSource id="OrderDS" jndiName="jdbc/orderds" type="javax.sql.XADataSource">
@@ -38,7 +45,7 @@
 
   <applicationMonitor updateTrigger="mbean"/>
 
-  <application id="customerOrderServicesApp" name="CustomerOrderServicesApp-0.1.0-SNAPSHOT.ear" type="ear" location="apps/CustomerOrderServicesApp-0.1.0-SNAPSHOT.ear">
+  <application id="customerOrderServicesApp1" name="CustomerOrderServicesApp-0.1.0-SNAPSHOT.ear" type="ear" location="${server.config.dir}/apps/CustomerOrderServicesApp-0.1.0-SNAPSHOT.ear">
     <classloader apiTypeVisibility="spec, ibm-api, third-party" />
   </application>
 
