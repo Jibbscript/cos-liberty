@@ -1,7 +1,7 @@
 .DS_Store
+dojo/**
 
-.odo/odo-file-index.json
-
+/.apt_generated/
 # Compiled class file
 *.class
 
@@ -15,6 +15,7 @@
 .mtj.tmp/
 
 # Package Files #
+#*.jar
 *.war
 *.nar
 *.ear
@@ -28,5 +29,3 @@ hs_err_pid*
 **/target/
 .settings/
 bin/
-
-
