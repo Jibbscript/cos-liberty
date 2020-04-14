@@ -13,7 +13,7 @@
 
   </featureManager>
 
-  <library id="DB2Lib">
+  <library id="DB2Lib2">
     <fileset dir="${server.config.dir}resources/db2" includes="db2jcc4.jar db2jcc_license_cu.jar"/>
   </library>
 
@@ -39,8 +39,12 @@
 
   <applicationMonitor updateTrigger="mbean"/>
 
-  <application id="customerOrderServicesApp1" name="CustomerOrderServicesApp-0.1.0-SNAPSHOT.ear" type="ear" location="${server.config.dir}/apps/CustomerOrderServicesApp-0.1.0-SNAPSHOT.ear">
+<enterpriseApplication id="CustomerOrderServicesApp" location="CustomerOrderServicesApp-0.1.0-SNAPSHOT.ear" name="CustomerOrderServicesApp">
+ <classloader apiTypeVisibility="spec, ibm-api, third-party" />
+  </enterpriseApplication>
+
+  <!-- <application id="customerOrderServicesApp1" name="CustomerOrderServicesApp-0.1.0-SNAPSHOT.ear" type="ear" location="${server.config.dir}/apps/CustomerOrderServicesApp-0.1.0-SNAPSHOT.ear">
     <classloader apiTypeVisibility="spec, ibm-api, third-party" />
-  </application>
+  </application> -->
 
 </server>

@@ -1,0 +1,89 @@
+metadata:
+  name: openLibertyw15ab
+projects:
+  - name: cos-liberty
+    source:
+      location: 'https://github.com/vandepol/cos-liberty'
+      type: git
+      branch: master
+  - name: cos-liberty-original
+    source:
+      location: 'https://github.com/vandepol/cos-liberty-original'
+      type: git
+components:
+  - id: redhat/java/latest
+    memoryLimit: 1512Mi
+    type: chePlugin
+  - mountSources: true
+    endpoints:
+      - name: 9080-http
+        port: 9080
+      - name: 9043-https
+        port: 9043
+      - name: 7777-debug
+        port: 7777
+    command:
+      - tail
+    args:
+      - '-f'
+      - /dev/null
+    memoryLimit: 768Mi
+    type: dockerimage
+    volumes:
+      - name: m2
+        containerPath: /home/user/.m2
+    alias: runtime
+    image: 'ibmcom/websphere-liberty:latest'
+    env:
+      - value: TEST
+        name: MODE
+      - value: myval
+        name: myprop
+  - mountSources: true
+    endpoints:
+      - name: 9080-http2
+        port: 9080
+      - name: 9043-https2
+        port: 9043
+      - name: 7777-debug2
+        port: 7777
+    command:
+      - tail
+    args:
+      - '-f'
+      - /dev/null
+    memoryLimit: 768Mi
+    type: dockerimage
+    volumes:
+      - name: m2
+        containerPath: /home/user/.m2
+    alias: build
+    image: maven
+    env:
+      - value: TEST2
+        name: MODE2
+      - value: myval2
+        name: myprop2
+apiVersion: 1.0.0
+commands:
+  - name: Build All
+    actions:
+      - workdir: /projects/cos-liberty
+        type: exec
+        command: mvn install -Dmaven.repo.local=/tmp/.m2/repository -DskipTests=true
+        component: build
+  - name: Run
+    actions:
+      - workdir: /projects/cos-liberty/CustomerOderServiceApp
+        type: exec
+        command: 'mvn liberty:run'
+        component: runtime
+  - name: Debug
+    actions:
+      - workdir: /projects/cos-liberty/CustomerOrderServiceApp
+        type: exec
+        command: >-
+          mvn liberty:dev -Dmaven.repo.local=/tmp/.m2/repository
+          -DskipTests=true
+        component: build
+
