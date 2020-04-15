@@ -90,7 +90,7 @@
         <configuration>
           <version>5</version>
           <generateModuleId>true</generateModuleId>
-          <outputDirectory>../target/</outputDirectory>
+          <!--outputDirectory>target/</outputDirectory-->
           <modules>
             <ejbModule>
               <groupId>org.pwte.example</groupId>
