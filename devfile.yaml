@@ -13,9 +13,9 @@ components:
         - name: DB2_PASSWORD
           value: db2inst1
         - name: DB2_PORT
-          value: '50000'
+          value: `31421`
         - name: DB2_HOST
-          value: '172.21.54.23'
+          value: console-openshift-console.gse-appmod-cp4a-2-0143c5dd31acd8e030a1d6e0ab1380e3-0000.us-south.containers.appdomain.cloud
         - name: DB2_USER
           value: db2inst1
     endpoints:

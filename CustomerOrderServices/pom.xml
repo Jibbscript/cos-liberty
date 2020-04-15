@@ -6,12 +6,11 @@
   <version>0.1.0-SNAPSHOT</version>
   <name>CustomerOrderServices</name>
   <packaging>ejb</packaging>
-  <!--parent>
-    <artifactId>project</artifactId>
+  <parent>
+    <artifactId>CustomerOrderServicesApp</artifactId>
     <groupId>org.pwte.example</groupId>
     <version>0.1.0-SNAPSHOT</version>
-    <relativePath>../CustomerOrderServicesProject</relativePath>
-  </parent-->
+  </parent>
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
