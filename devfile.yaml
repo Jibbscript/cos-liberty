@@ -13,7 +13,7 @@ components:
         - name: DB2_PASSWORD
           value: db2inst1
         - name: DB2_PORT
-          value: `31421`
+          value: '31421'
         - name: DB2_HOST
           value: console-openshift-console.gse-appmod-cp4a-2-0143c5dd31acd8e030a1d6e0ab1380e3-0000.us-south.containers.appdomain.cloud
         - name: DB2_USER
@@ -28,7 +28,6 @@ components:
           secure: 'true'
           public: 'true'
           discoverable: 'true'
-          termination: 'passthrough'
     volumes:
       - name: m2
         containerPath: /home/user/.m2
@@ -37,9 +36,9 @@ commands:
     actions:
       - type: exec
         component: tools
-        command: "mvn install -Dmaven.repo.local=/tmp/.m2/repository -f CustomerOrderServices/pom.xml && mvn install -Dmaven.repo.local=/tmp/.m2/repository -f CustomerOrderServicesTest/pom.xml && mvn install -Dmaven.repo.local=/tmp/.m2/repository -f CustomerOrderServicesWeb/pom.xml && mvn clean package -Dmaven.repo.local=/tmp/.m2/repository"
+        command: "mvn install -Dmaven.repo.local=/home/user/.m2/repository"
   - name: devRun
     actions:
       - type: exec
         component: tools
-        command: "mvn liberty:run -Dmaven.repo.local=/tmp/.m2/repository"
+        command: "mvn liberty:run -f CustomerOrderServicesApp/pom.xml -Dmaven.repo.local=/home/user/.m2/repository"

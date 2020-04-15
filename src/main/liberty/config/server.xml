@@ -39,7 +39,7 @@
 
   <applicationMonitor updateTrigger="mbean"/>
 
-<enterpriseApplication id="CustomerOrderServicesApp" location="CustomerOrderServicesApp-0.1.0-SNAPSHOT.ear" name="CustomerOrderServicesApp">
+<enterpriseApplication id="CustomerOrderServicesApp" location="CustomerOrderServicesApp.ear" name="CustomerOrderServicesApp">
  <classloader apiTypeVisibility="spec, ibm-api, third-party" />
   </enterpriseApplication>
 

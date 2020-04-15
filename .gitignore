@@ -32,7 +32,10 @@ bin/
 .odo/
 .vscode/
 .project
-**/dojo/*
-**/dojo_built/*
+#**/dojo/*
+#**/dojo_built/*
+
+server.env
+CustomerOrderServicesApp/src/main/liberty/config/server.env
 
 .odo/odo-file-index.json

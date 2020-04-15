@@ -4,10 +4,10 @@
   <groupId>org.pwte.example</groupId>
   <artifactId>CustomerOrderServices</artifactId>
   <version>0.1.0-SNAPSHOT</version>
-  <name>CustomerOrderServices</name>
+  <name>Customer Order Services EJB</name>
   <packaging>ejb</packaging>
   <parent>
-    <artifactId>CustomerOrderServicesApp</artifactId>
+    <artifactId>CustomerOrderServicesParent</artifactId>
     <groupId>org.pwte.example</groupId>
     <version>0.1.0-SNAPSHOT</version>
   </parent>
